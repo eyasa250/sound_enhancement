@@ -1,0 +1,41 @@
+# Environnements virtuels
+venv/
+env/
+audio/
+
+# Fichiers temporaires ou de cache
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Fichiers de configuration système
+.DS_Store
+Thumbs.db
+
+# Dossiers de tests ou builds
+build/
+dist/
+*.egg-info/
+
+# Fichiers audio/vidéo générés
+*.wav
+*.mp3
+*.mp4
+*.m4a
+
+# Fichiers de traitement temporaires
+temp_*.*
+extracted_*.*
+enhanced_*.*
+*.npy
+
+# Configs perso (Postman, IDE)
+*.code-workspace
+.vscode/
+.idea/
+
+# Token/API secrets si tu les utilises
+.env
