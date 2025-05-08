@@ -4,11 +4,13 @@ import noisereduce as nr
 import numpy as np
 from pedalboard import Pedalboard, NoiseGate, Compressor, LowShelfFilter, HighShelfFilter, Gain
 import soundfile as sf
-from moviepy import *
+#from moviepy.editor import VideoFileClip
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse
+from moviepy.editor import VideoFileClip  # Import spécifique pour VideoFileClip
 
 app = FastAPI()
+
 UPLOAD_DIR = "uploads"
 PROCESSED_DIR = "processed"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -17,8 +19,8 @@ os.makedirs(PROCESSED_DIR, exist_ok=True)
 def extract_audio(input_path: str) -> str:
     ext = os.path.splitext(input_path)[1].lower()
     if ext == ".mp4":
+        audio_path = os.path.join(UPLOAD_DIR, "audio.wav")
         video = VideoFileClip(input_path)
-        audio_path = os.path.join(UPLOAD_DIR, "temp_audio.wav")
         video.audio.write_audiofile(audio_path, verbose=False, logger=None)
         return audio_path
     return input_path
